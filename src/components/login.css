@@ -1,0 +1,49 @@
+.btn {
+  margin: 5px;
+}
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-h1,
+.forgot-h1 {
+  text-align: center;
+  font-family: cursive;
+  margin-top: 20px;
+}
+form {
+  margin-top: 40px;
+}
+.login-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 4rem;
+}
+.forgot-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 1rem;
+}
+.forgot-btn {
+  position: relative;
+  left: 40%;
+}
+.forgot-h1 {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .login-img {
+    margin-top: 0rem;
+  }
+}
