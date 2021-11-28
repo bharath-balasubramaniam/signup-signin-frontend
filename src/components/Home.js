@@ -101,6 +101,8 @@ function Home() {
                 />
                 <h3 className="logo-h3">Nodejs</h3>
               </div>
+            </div>
+            <div className="row">
               <div className="col-6-lg col crd d-flex align-items-center d-flex justify-content-center">
                 <img
                   src={reduxjs}
@@ -121,6 +123,8 @@ function Home() {
                 />
                 <h3 className="logo-h3">React-Router-Dom</h3>
               </div>
+            </div>
+            <div className="row">
               <div className="col-6-lg col crd d-flex align-items-center d-flex justify-content-center">
                 <img
                   src={axios}
