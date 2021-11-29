@@ -4,13 +4,13 @@ import "./register.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import History from "./History";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 const validateEmail = RegExp(
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 function Register() {
-  const dispatch = useDispatch();
-  const register = useSelector((state) => state.registerSuccess);
+  // const dispatch = useDispatch();
+  // const register = useSelector((state) => state.registerSuccess);
   const [errors, setErrors] = useState("");
   return (
     <div>
@@ -51,9 +51,9 @@ function Register() {
                 return errors;
               }}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  setSubmitting(true);
-                }, 400);
+                // setTimeout(() => {
+                //   setSubmitting(true);
+                // }, 400);
                 console.log(values);
                 axios
                   .post(
@@ -61,13 +61,8 @@ function Register() {
                     values
                   )
                   .then((response) => {
-                    console.log(response.data);
-                    dispatch({
-                      type: "register",
-                      payload: response.data,
-                    });
-                    console.log(register);
-                    if (register) {
+                    console.log(response.data.success);
+                    if (response.data.success) {
                       console.log("You acount is Created!");
                       History.push("/login");
                       History.go(0);
@@ -79,7 +74,7 @@ function Register() {
                   });
               }}
             >
-              {({ isSubmitting, values, handleReset }) => {
+              {({ isSubmitting, handleReset }) => {
                 return (
                   <div className="container">
                     <div className="row">

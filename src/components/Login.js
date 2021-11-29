@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import "./login.css";
 import History from "./History";
 import { Link } from "react-router-dom";
 import loginimg from "../assets/login.png";
 function Login() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const login = useSelector((state) => state.loginSuccess);
+  // const login = useSelector((state) => state.loginSuccess);
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState();
   const submitForm = (event) => {
@@ -27,12 +27,8 @@ function Login() {
           dataToSubmit
         )
         .then((response) => {
-          console.log(response.data.loginSuccess);
-          dispatch({
-            type: "login",
-            payload: response.data,
-          });
-          if (login) {
+          const a = response.data.loginSucess;
+          if (a) {
             console.log("You are logged in");
             History.push("/about");
             History.go(0);
@@ -43,7 +39,6 @@ function Login() {
             console.log(errors);
           }
         });
-      console.log(login);
     }
   };
   return (

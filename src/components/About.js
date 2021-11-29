@@ -7,12 +7,13 @@ function About() {
     axios
       .get("https://signup-signin-resetpassword.herokuapp.com/user/auth")
       .then((response) => {
-        if (response.data.isAuth === false) {
+        console.log(response);
+        if (!response.data.login) {
           History.push("/login");
-          History.go(0);
+          // History.go(0);
         }
       });
-  });
+  }, []);
   return (
     <div>
       <div className="container">
