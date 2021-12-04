@@ -17,9 +17,7 @@ const INITIAL_VALUE = {
 const reducer = (state = INITIAL_VALUE, action) => {
   switch (action.type) {
     case "login":
-      return { ...state, loginSuccess: action.payload.loginSuccess };
-    case "register":
-      return { ...state, registerSuccess: action.payload };
+      return { ...state, loginSuccess: action.payload };
     default:
       return { ...state };
   }

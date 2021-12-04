@@ -23,11 +23,13 @@ function Login() {
     if (email && password) {
       axios
         .post(
-          "https://signup-signin-resetpassword.herokuapp.com/user/login",
+          "https://forgotpassword-sigin.herokuapp.com/user/login",
           dataToSubmit
         )
         .then((response) => {
-          const a = response.data.loginSucess;
+          console.log(response);
+          const a = response.data.loginSuccess;
+          document.cookie = `x_auth=${response.data.token}`;
           if (a) {
             console.log("You are logged in");
             History.push("/about");

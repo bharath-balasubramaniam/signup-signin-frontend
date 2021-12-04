@@ -1,16 +1,29 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import History from "./History";
+// import { request } from "http";
 function About() {
+  const token = document.cookie;
   useEffect(() => {
+    // axios.defaults.withCredentials = true;
     console.log("about.js");
-    axios
-      .get("https://signup-signin-resetpassword.herokuapp.com/user/auth")
+    fetch("https://forgotpassword-sigin.herokuapp.com/user/auth", {
+      method: "get",
+      headers: {
+        Authorization: token, //the token is a variable which holds the token
+      },
+    })
       .then((response) => {
-        console.log(response);
-        if (!response.data.login) {
+        if (response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then((data) => {
+        console.log(data.login);
+        if (!data.login) {
           History.push("/login");
-          // History.go(0);
+          History.go(0);
         }
       });
   }, []);

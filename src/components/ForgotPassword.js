@@ -17,13 +17,12 @@ function ForgotPassword() {
     if (email && name) {
       axios
         .post(
-          "https://signup-signin-resetpassword.herokuapp.com/user/forgotPassword",
+          "https://forgotpassword-sigin.herokuapp.com/user/forgotPassword",
           dataToSubmit
         )
         .then((response) => {
-          console.log(response.data.loginSuccess);
-
-          if (response.success) {
+          console.log(response.data);
+          if (response.data.success) {
             alert(
               "Your password reset link is sent to your registered mail id"
             );

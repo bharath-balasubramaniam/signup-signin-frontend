@@ -16,13 +16,18 @@ function ResetPassword(props) {
       setErrors("Failed to Reset, Please fill the field !");
     }
     if (password === rePassword) {
+      console.log(
+        "https://forgotpassword-sigin.herokuapp.com",
+        props.location.pathname
+      );
       axios
         .post(
-          `https://chat-app-mern-server.herokuapp.com${props.location.pathname}`,
+          `https://forgotpassword-sigin.herokuapp.com/user${props.location.pathname}`,
           dataToSubmit
         )
         .then((response) => {
-          if (response.success) {
+          console.log(response.data.success);
+          if (response.data.success) {
             alert("Your password is updated!");
             History.push("/login");
             History.go(0);
@@ -43,7 +48,7 @@ function ResetPassword(props) {
           </div>
           <div className="reset-container col-lg-4 col-md-4 col-12">
             <div>
-              <h1 className="reset-h1">Forgot Password</h1>
+              <h1 className="register-h1">Reset Password</h1>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input

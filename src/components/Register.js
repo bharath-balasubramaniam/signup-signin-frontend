@@ -57,7 +57,7 @@ function Register() {
                 console.log(values);
                 axios
                   .post(
-                    "https://signup-signin-resetpassword.herokuapp.com/user/register",
+                    "https://forgotpassword-sigin.herokuapp.com/user/register",
                     values
                   )
                   .then((response) => {
