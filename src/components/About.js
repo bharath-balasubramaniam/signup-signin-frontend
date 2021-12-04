@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import History from "./History";
 // import { request } from "http";
 function About() {
@@ -26,7 +26,7 @@ function About() {
           History.go(0);
         }
       });
-  }, []);
+  }, [token]);
   return (
     <div>
       <div className="container">
